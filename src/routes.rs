@@ -31,14 +31,14 @@ pub fn routes() -> Router {
 
 fn on_request(request: &Request<Body>, _ : &Span){
     tracing::info!(
-        "request started: method {} path {}",
+        "-> request started: method {} path {}",
         request.method(),
         request.uri().path()
     )
 }
 fn on_response(response: &Response<Body>, latency: Duration, _: &Span){
     tracing::info!(
-        "Response generated: status {} in {:?}",
+        "<- Response generated: status {} in {:?}",
         response.status(),
         latency
     )
@@ -46,7 +46,7 @@ fn on_response(response: &Response<Body>, latency: Duration, _: &Span){
 
 fn on_failure(error: ServerErrorsFailureClass, latency: Duration, _:&Span){
     tracing::error!(
-        "Request Failed: {:?} after {:?}",
+        "-x- Request Failed: {:?} after {:?}",
         error,
         latency
     )

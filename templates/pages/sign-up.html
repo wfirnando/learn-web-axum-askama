@@ -16,17 +16,40 @@
   <main class="form-signin w-100 m-auto">
       <div class="row g-3 align-item-center">
 
+
+
+          {% if email_error.is_empty() %}
+          {% else %}
+              <div class="alert alert-danger" role="alert">
+              {{email_error}}
+              </div>
+          {% endif %}
+
+          {% if password_error.is_empty() %}
+          {% else %}
+          <div class="alert alert-danger" role="alert">
+              {{password_error}}
+          </div>
+          {% endif %}
+
+
       <form method="Post" action="/signup">
 
-          <h1 class=" mb-3">Create account</h1>
-          <div class="form-floating col-auto">
-            <input type="email" class="form-control" id="floatingInput" name="email" placeholder="name@example.com">
-            <label for="floatingInput">Email address</label>
-          </div>
+          <h1 class=" mb-3">Sign Up</h1>
+              <div class="form-floating col-auto">
+                  <input type="email" class="form-control" id="floatingInput" name="email" placeholder="name@example.com" value="{{email}}">
+                  <label for="floatingInput">Email address</label>
+              </div>
+
+
+
+
+
           <div class="form-floating col-auto" >
-                  <input type="password" class="form-control" id="floatingPassword" name="password" placeholder="Password">
-                    <label for="floatingPassword">Password</label>
+              <input type="password" class="form-control" id="floatingPassword" name="password" placeholder="Password">
+              <label for="floatingPassword">Password</label>
           </div>
+
 
           <div class="form-floating col-auto" >
               <button class="btn btn-primary w-100 py-2" type="submit">Submit</button>
