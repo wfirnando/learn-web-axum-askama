@@ -11,5 +11,37 @@
 {% endblock %}
 
 {% block main%}
-    <h1>Sign up pages</h1>
+  <div class="container-fluid py-5">
+
+  <main class="form-signin w-100 m-auto">
+      <div class="row g-3 align-item-center">
+
+      <form method="Post" action="/signup">
+
+          <h1 class=" mb-3">Create account</h1>
+          <div class="form-floating col-auto">
+            <input type="email" class="form-control" id="floatingInput" name="email" placeholder="name@example.com">
+            <label for="floatingInput">Email address</label>
+          </div>
+          <div class="form-floating col-auto" >
+                  <input type="password" class="form-control" id="floatingPassword" name="password" placeholder="Password">
+                    <label for="floatingPassword">Password</label>
+          </div>
+
+          <div class="form-floating col-auto" >
+              <button class="btn btn-primary w-100 py-2" type="submit">Submit</button>
+          </div>
+
+      </form>
+
+          <form method="GET" action="/login">
+              <div class="form-floating col-auto" >
+                  <button class="btn btn-success w-100 py-2" type="submit">Already have account? Log In</button>
+              </div>
+          </form>
+      </div>
+      </div>
+  </main>
+      </div>
+  </div>
 {% endblock%}
